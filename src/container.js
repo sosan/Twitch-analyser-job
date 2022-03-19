@@ -9,6 +9,8 @@ const MongoStreamerDocumentParser = require('./infrastructure/persistence/mongo/
 const {MongoClient: mongo} = require('mongodb');
 const MongoDbHandler = require ('./infrastructure/persistence/mongo/mongo-db-handler');
 const MongoStreamerRepository = require('./infrastructure/persistence/mongo/mongo-streamer-repository');
+const getStreamers = require('./application/get_streamers/');
+const getStreams = require('./application/get_streams/');
 
 const container = awilix.createContainer({
   injectionMode: awilix.InjectionMode.PROXY,
@@ -24,7 +26,9 @@ container.register({
   streamerDocumentParser: awilix.asClass(MongoStreamerDocumentParser),
   mongo: awilix.asValue(mongo),
   mongoDbHandler: awilix.asClass(MongoDbHandler).singleton(),
-  streamerRepository: awilix.asClass(MongoStreamerRepository)
+  streamerRepository: awilix.asClass(MongoStreamerRepository),
+  getStreamers: awilix.asClass(getStreamers),
+  getStreams: awilix.asClass(getStreams),
 });
 
 module.exports = container;

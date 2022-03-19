@@ -34,8 +34,8 @@
     },
     {
       id: '68fa4927-f9d1-4f8a-876d-8ca5589712a1',
-      name: 'kidi',
-      idTwitch: '32212533'
+      name: 'elxokas',
+      idTwitch: '31919607'
     }
   ]
 

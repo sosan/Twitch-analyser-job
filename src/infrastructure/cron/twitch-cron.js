@@ -1,15 +1,26 @@
 const cron = require('node-cron');
 const container = require('../../container');
 const httpTwitch = container.resolve('twitchClient');
-const streamerRepository = container.resolve('streamerRepository');
+
+const getStreamers = container.resolve('getStreamers');
+const getStreams = container.resolve('getStreams');
+
+const GetStreamsCommand = require('../../application/get_streams/get-streams-command');
 
 
 cron.schedule('*/10 * * * * *', async date => {
-  const streamers = await streamerRepository.findAll();
-  console.log(`=> Starting cron at: ${date}`)
-  for (streamer of streamers) {
-    const currentStream = await httpTwitch.getCurrentStream(streamer.name)
-    console.log(`=> Streamer: ${streamer.name}, Status: ${currentStream ? 'ONLINE' : 'OFFLINE'}`)
+  const { streamerNames } = await getStreamers.execute();
+  console.log(`=> Starting cron at: ${date}`);
+
+  for (streamer of streamerNames) {
+    try {
+      const getStreamsCommand = new GetStreamsCommand({twitchUsername: streamer})
+      const currentStream = await getStreams.execute(getStreamsCommand)
+      console.log(currentStream)
+    } catch (err) {
+      console.log('::err',err);
+    }
   }
+
 });
 
