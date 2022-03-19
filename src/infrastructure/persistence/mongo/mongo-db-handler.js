@@ -21,7 +21,7 @@ class MongoDbHandler {
       return db;
     } catch (err) {
       const error = err.message ? err.message : err;
-      console.log(error)
+      console.log(error);
       console.error(`Error in database connection: ${error}`);
       throw new Error(`Error in database connection: ${error}`);
     }

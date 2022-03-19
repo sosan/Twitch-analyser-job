@@ -1,7 +1,7 @@
-const { twitch: { clientId, secretId, oauthUri, twitchApiUri } } = require('../config/')
+const {twitch: {clientId, secretId, oauthUri, twitchApiUri}} = require('../config/');
 
 class TwitchClient {
-  constructor({ httpClient }) {
+  constructor({httpClient}) {
     this.httpClient = httpClient;
   }
 
@@ -9,11 +9,11 @@ class TwitchClient {
     const requestTwitchToken = await this._getToken();
 
     const headers = this._headersWithToken(requestTwitchToken);
-    const requestTwitchUserId = await this.httpClient.get(`${twitchApiUri}/users?login=${twitchUsername}`, { headers });
+    const requestTwitchUserId = await this.httpClient.get(`${twitchApiUri}/users?login=${twitchUsername}`, {headers});
 
-    
-    if(requestTwitchUserId.data.data.length === 0){
-      return null
+
+    if (requestTwitchUserId.data.data.length === 0) {
+      return null;
     }
 
     return requestTwitchUserId.data.data[0];
@@ -23,19 +23,23 @@ class TwitchClient {
     const requestTwitchToken = await this._getToken();
 
     const headers = this._headersWithToken(requestTwitchToken);
-    const requestTwitchStream = await this.httpClient.get(`${twitchApiUri}/streams?user_login=${twitchUsername}`, { headers });
+    const requestTwitchStream = await this.httpClient.get(`${twitchApiUri}/streams?user_login=${twitchUsername}`,
+        {headers});
 
-    if(requestTwitchStream.data.data.length === 0){
-      return null
+    if (requestTwitchStream.data.data.length === 0) {
+      return null;
     }
 
     return requestTwitchStream.data.data[0];
   }
 
   async _getToken() {
-    const requestTwitch = await this.httpClient.post(`${oauthUri}/token?client_id=${clientId}&client_secret=${secretId}&grant_type=client_credentials`);
-    const { data: { access_token } } = requestTwitch;
+    const requestTwitch = await this.httpClient
+        .post(`${oauthUri}/token?client_id=${clientId}&client_secret=${secretId}&grant_type=client_credentials`);
+    // eslint-disable-next-line
+    const {data: {access_token}} = requestTwitch;
 
+    // eslint-disable-next-line
     return access_token;
   }
 
@@ -43,9 +47,8 @@ class TwitchClient {
     return {
       'authorization': `Bearer ${token}`,
       'client-id': clientId,
-    }
+    };
   }
-
 }
 
 module.exports = TwitchClient;

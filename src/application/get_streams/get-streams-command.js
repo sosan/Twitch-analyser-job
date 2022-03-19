@@ -1,5 +1,5 @@
-class GetStreamsCommand{
-  constructor({twitchUsername}){
+class GetStreamsCommand {
+  constructor({twitchUsername}) {
     this.twitchUsername = twitchUsername;
   }
 }

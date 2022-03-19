@@ -1,9 +1,9 @@
 class StreamerRepository {
-  async findAll(){
+  async findAll() {
     throw new Error('Method not implemented yet!');
   }
 
-  async save(streamer){
+  async save(streamer) {
     throw new Error('Method not implemented yet!');
   }
 }
