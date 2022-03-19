@@ -2,26 +2,26 @@ const DocumentParser = require('./document-parser');
 const Streamer = require('../../../domain/streamer/streamer');
 
 class MongoStreamerDocumentParser extends DocumentParser {
-  constructor({muuid}){
+  constructor({muuid}) {
     super();
-    this.muuid = muuid
+    this.muuid = muuid;
   }
 
-  toDomain(document){
+  toDomain(document) {
     return new Streamer({
       id: this.muuid.from(document._id).toString(),
       name: document.name,
-      idTwitch: document.idTwitch
-    })
+      idTwitch: document.idTwitch,
+    });
   }
 
-  toDocument(domain){
-    return{
+  toDocument(domain) {
+    return {
       _id: this.muuid.from(domain._id),
       name: domain._name,
-      idTwitch: domain._idTwitch
-    }
+      idTwitch: domain._idTwitch,
+    };
   }
 }
 
-module.exports = MongoStreamerDocumentParser
+module.exports = MongoStreamerDocumentParser;

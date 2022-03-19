@@ -42,7 +42,6 @@ class Streamer {
   get name() {
     return this._name;
   }
-
 }
 
 module.exports = Streamer;

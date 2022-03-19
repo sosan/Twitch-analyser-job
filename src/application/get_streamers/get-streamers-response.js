@@ -1,6 +1,6 @@
-class GetStreamersResponse{
-  constructor({streamerNames}){
-    this.streamerNames = streamerNames
+class GetStreamersResponse {
+  constructor({streamerNames}) {
+    this.streamerNames = streamerNames;
   }
 }
 

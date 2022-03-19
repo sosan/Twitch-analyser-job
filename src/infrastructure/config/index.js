@@ -11,7 +11,7 @@ const run = {
     mongoConnectionUri: 'mongodb://db:27017',
     dbName: 'twitch-analyser',
     timeout: 5000,
-  }
+  },
 };
 
 const test = {
@@ -25,7 +25,7 @@ const test = {
     mongoConnectionUri: 'mongoConnectionUri_MOCK',
     dbName: 'dbName_MOCK',
     timeout: 5000,
-  }
+  },
 };
 
 const config = {
