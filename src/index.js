@@ -1,6 +1,6 @@
 require('dotenv').config();
+require('./infrastructure/cron/twitch-cron');
 
-const twitchCron = require('./infrastructure/cron/twitch-cron');
 const container = require('./container');
 
 const gracefulStopper = container.resolve('gracefulStopper');

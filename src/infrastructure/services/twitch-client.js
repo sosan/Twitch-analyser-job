@@ -5,11 +5,11 @@ class TwitchClient {
     this.httpClient = httpClient;
   }
 
-  async getTwitchUser(TwitchUsername) {
+  async getTwitchUser(twitchUsername) {
     const requestTwitchToken = await this._getToken();
 
     const headers = this._headersWithToken(requestTwitchToken);
-    const requestTwitchUserId = await this.httpClient.get(`${twitchApiUri}/users?login=${TwitchUsername}`, { headers });
+    const requestTwitchUserId = await this.httpClient.get(`${twitchApiUri}/users?login=${twitchUsername}`, { headers });
 
     
     if(requestTwitchUserId.data.data.length === 0){
@@ -19,17 +19,17 @@ class TwitchClient {
     return requestTwitchUserId.data.data[0];
   }
 
-  async getCurrentStream(TwitchUsername) {
+  async getCurrentStream(twitchUsername) {
     const requestTwitchToken = await this._getToken();
 
     const headers = this._headersWithToken(requestTwitchToken);
-    const requestTwitchStream = await this.httpClient.get(`${twitchApiUri}/streams?user_login=${TwitchUsername}`, { headers });
+    const requestTwitchStream = await this.httpClient.get(`${twitchApiUri}/streams?user_login=${twitchUsername}`, { headers });
 
     if(requestTwitchStream.data.data.length === 0){
       return null
     }
 
-    return requestTwitchStream.data;
+    return requestTwitchStream.data.data[0];
   }
 
   async _getToken() {
