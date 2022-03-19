@@ -1,0 +1,33 @@
+{
+  "name": "Twitch-analyser-job",
+  "version": "1.0.0",
+  "description": "Job analysing twitch traffic.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon -L ./index.js",
+    "mock:db": "node ./script/setMockUsers.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EsteveSegura/Twitch-analyser-job.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EsteveSegura/Twitch-analyser-job/issues"
+  },
+  "homepage": "https://github.com/EsteveSegura/Twitch-analyser-job#readme",
+  "dependencies": {
+    "awilix": "^6.1.0",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "mongodb": "^4.4.1",
+    "node-cron": "^3.0.0",
+    "nodemon": "^2.0.15",
+    "tasuku": "^1.0.2",
+    "uuid": "^8.3.2",
+    "uuid-mongodb": "^2.5.0"
+  }
+}

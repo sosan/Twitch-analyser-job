@@ -1,0 +1,37 @@
+version: "3.7"
+
+services: 
+  cron: 
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=run
+      - TWITCH_OAUTH_URI=https://id.twitch.tv/oauth2
+      - TWITCH_API_URI=https://api.twitch.tv/helix
+      - TWITCH_CLIENT_ID=<YOUR_SECRETS_HERE>
+      - TWITCH_SECRET_ID=<YOUR_SECRETS_HERE>
+    volumes:
+      - ./src:/usr/src/app
+      - nodemodules:/usr/src/app/node_modules
+    command: npm run dev
+    networks:
+      - analyser
+  db:
+    image: mongo
+    ports: 
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+    networks:
+      - analyser
+networks:
+  analyser:
+    name: analyser
+    external: false
+volumes:
+  nodemodules:
+    driver: local
+  mongodata:
