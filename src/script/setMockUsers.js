@@ -34,8 +34,18 @@
     },
     {
       id: '68fa4927-f9d1-4f8a-876d-8ca5589712a1',
-      name: 'elxokas',
-      idTwitch: '31919607',
+      name: 'gonsabellla',
+      idTwitch: '405208912',
+    },
+    {
+      id: 'b5ce1f4b-2091-48ab-9af6-3b36d9112410',
+      name: 'rubius',
+      idTwitch: '39276140',
+    },
+    {
+      id: '2743f7b3-eb10-4c72-aec5-81e114aa3d6a',
+      name: 'shadoune666',
+      idTwitch: '36533048',
     },
   ];
 

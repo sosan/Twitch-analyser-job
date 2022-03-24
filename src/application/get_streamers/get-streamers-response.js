@@ -1,6 +1,6 @@
 class GetStreamersResponse {
-  constructor({streamerNames}) {
-    this.streamerNames = streamerNames;
+  constructor({streamers}) {
+    this.streamers = streamers;
   }
 }
 

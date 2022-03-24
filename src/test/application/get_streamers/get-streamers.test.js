@@ -29,7 +29,10 @@ describe('Get Streamers', () => {
       idTwitch: '0000000',
     });
 
-    const expectedResponse = {streamerNames: ['sampleStreamer']};
+    const expectedResponse = {streamers: [{
+      streamerId: '0000000',
+      streamerName: 'sampleStreamer',
+    }]};
 
     streamerRepositoryMock.findAll.mockReturnValue([mockStreamerDomain]);
 

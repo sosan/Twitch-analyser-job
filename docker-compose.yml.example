@@ -13,6 +13,7 @@ services:
       - TWITCH_API_URI=https://api.twitch.tv/helix
       - TWITCH_CLIENT_ID=<YOUR_SECRETS_HERE>
       - TWITCH_SECRET_ID=<YOUR_SECRETS_HERE>
+      - SENTRY_DSN_URL=<YOUR_DSN_HERE>
     volumes:
       - ./src:/usr/src/app
       - nodemodules:/usr/src/app/node_modules
