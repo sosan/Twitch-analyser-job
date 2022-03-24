@@ -11,6 +11,12 @@ const MongoDbHandler = require('./infrastructure/persistence/mongo/mongo-db-hand
 const MongoStreamerRepository = require('./infrastructure/persistence/mongo/mongo-streamer-repository');
 const getStreamers = require('./application/get_streamers/');
 const getStreams = require('./application/get_streams/');
+const RedisDbHandler = require('./infrastructure/persistence/redis_timeseries/redis-db-handler');
+const redisTimeseries = require('redistimeseries-js');
+const RedisStreamRepository = require('./infrastructure/persistence/redis_timeseries/redis-stream-repository');
+const saveRecord = require('./application/save_record/');
+const sentry = require('@sentry/node');
+const errorTracking = require('./infrastructure/services/error-tracking');
 
 const container = awilix.createContainer({
   injectionMode: awilix.InjectionMode.PROXY,
@@ -29,6 +35,12 @@ container.register({
   streamerRepository: awilix.asClass(MongoStreamerRepository),
   getStreamers: awilix.asClass(getStreamers),
   getStreams: awilix.asClass(getStreams),
+  redisDbHandler: awilix.asClass(RedisDbHandler),
+  redisTimeseries: awilix.asValue(redisTimeseries),
+  streamRepository: awilix.asClass(RedisStreamRepository),
+  saveRecord: awilix.asClass(saveRecord),
+  errorMetricSender: awilix.asValue(sentry),
+  errorTracking: awilix.asClass(errorTracking),
 });
 
 module.exports = container;

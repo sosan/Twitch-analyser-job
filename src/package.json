@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./index.js",
     "dev": "NODE_ENV=run nodemon -L ./index.js",
-    "pretest": "npm run lint",
-    "test": "NODE_ENV=test jest --collectCoverage --silent --testPathPattern=/test --maxWorkers=1 --forceExit --passWithNoTests",
+    "pretest": "eslint .",
+    "test": "NODE_ENV=test jest --collectCoverage --testPathPattern=/test --maxWorkers=1 --forceExit --passWithNoTests",
     "lint": "eslint .",
     "mock:db": "node ./script/setMockUsers.js"
   },
@@ -40,11 +40,14 @@
   },
   "homepage": "https://github.com/EsteveSegura/Twitch-analyser-job#readme",
   "dependencies": {
+    "@sentry/node": "^6.19.1",
+    "@sentry/tracing": "^6.19.1",
     "awilix": "^6.1.0",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "mongodb": "3.6.9",
     "node-cron": "^3.0.0",
+    "redistimeseries-js": "^2.3.1",
     "uuid": "^8.3.2",
     "uuid-mongodb": "2.4.4"
   },
