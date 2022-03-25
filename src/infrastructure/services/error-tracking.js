@@ -1,4 +1,4 @@
-const {sentry: {dsnUrl}} = require('../config')
+const {sentry: {dsnUrl}} = require('../config');
 
 class ErrorTracking {
   constructor({errorMetricSender}) {

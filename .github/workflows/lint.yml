@@ -16,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Copy package.json on root
+        run: cp ./src/package.json ./package.json && cp ./src/package-lock.json ./package-lock.json
+      - name: Copy .eslintrc on root
+        run: cp ./src/.eslintrc ./.eslintrc
       - uses: stefanoeb/eslint-action@1.0.2
         with:
           files: src/

@@ -7,7 +7,7 @@ const run = {
     oauthUri: process.env.TWITCH_OAUTH_URI,
     twitchApiUri: process.env.TWITCH_API_URI,
   },
-  sentry:{
+  sentry: {
     dsnUrl: process.env.SENTRY_DSN_URL,
   },
   cron: {
@@ -31,8 +31,8 @@ const test = {
     oauthUri: 'oauthUri_MOCK',
     twitchApiUri: 'twitchApiUri_MOCK',
   },
-  sentry:{
-    dsnUrl: 'sentryDsnUrl'
+  sentry: {
+    dsnUrl: 'sentryDsnUrl',
   },
   cron: {
     tenSeconds: '*/10 * * * * *',
