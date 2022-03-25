@@ -11,5 +11,3 @@ errorTracking.init();
 const signals = ['SIGINT', 'SIGTERM', 'SIGUSR1', 'SIGUSR2'];
 process.stdin.resume();
 signals.forEach((signal) => process.on(signal, () => gracefulStopper.stopGracefully()));
-
-
