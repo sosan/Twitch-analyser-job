@@ -25,7 +25,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Copy package.json on root
       run: cp ./src/package.json ./package.json && cp ./src/package-lock.json ./package-lock.json
-    - run: ls -l -a
     - run: cd ./src/ && npm ci
-    - run: cd ./src/ && ls -l -a
     - run: cd ./src/ && npm test
