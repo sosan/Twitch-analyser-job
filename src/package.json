@@ -1,10 +1,10 @@
 {
-  "name": "Twitch-analyser-job",
+  "name": "twitch-analyser-job",
   "version": "1.0.0",
   "description": "Job analysing twitch traffic.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "NODE_ENV=run node ./index.js",
     "dev": "NODE_ENV=run nodemon -L ./index.js",
     "pretest": "eslint .",
     "test": "NODE_ENV=test jest --collectCoverage --testPathPattern=/test --maxWorkers=1 --forceExit --passWithNoTests",
