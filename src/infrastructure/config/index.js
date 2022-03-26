@@ -18,7 +18,7 @@ const run = {
     port: 6379,
   },
   mongo: {
-    mongoConnectionUri: 'mongodb://db:27017',
+    mongoConnectionUri: 'mongodb://admin:admin@10.245.80.45:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false',
     dbName: 'twitch-analyser',
     timeout: 5000,
   },
